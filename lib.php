@@ -55,11 +55,16 @@ function theme_echidna_get_pre_scss($theme) {
  * @return string SCSS.
  */
 function theme_echidna_get_main_scss_content($theme) {
+    global $CFG;
     static $boosttheme = null;
     if (empty($boosttheme)) {
         $boosttheme = theme_config::load('boost'); // Needs to be the Boost theme so that we get its settings.
     }
+    // Initialise scss file to be processed.
     $scss = theme_boost_get_main_scss_content($boosttheme);
+
+    // Add in our own scss file (containing imports).
+    $scss .= file_get_contents($CFG->dirroot . '/theme/echidna/scss/echidna.scss');
 
     return $scss;
 }
