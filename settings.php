@@ -45,6 +45,7 @@ if ($ADMIN->fulltree) {
             '340px' => '340px',
         );
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');  // As the SCSS will change then this rebuilds the cache.
     $settings->add($setting);
 
     // Custom CSS.

@@ -43,8 +43,12 @@ function theme_echidna_get_pre_scss($theme) {
         $boosttheme = theme_config::load('boost'); // Needs to be the Boost theme so that we get its settings.
     }
 
+    // Insert the drawer width setting - do this before everything else in the 'pre' section so that it overrides anything set in the files.
+    $scss = '$blocks-column-width: ' . $theme->settings->drawerwidthechidna . ';';
+    $scss .= '$drawer-width: ' . $theme->settings->drawerwidthechidna . ';';
+
     // Boost theme definitions.
-    $scss = theme_boost_get_pre_scss($boosttheme);
+    $scss .= theme_boost_get_pre_scss($boosttheme);
 
     return $scss;
 }
@@ -65,9 +69,6 @@ function theme_echidna_get_main_scss_content($theme) {
     }
     // Initialise scss file to be processed.
     $scss = theme_boost_get_main_scss_content($boosttheme);
-
-    // Insert the drawer width setting.
-    $scss .= '$drawer-width: ' . $theme->settings->drawerwidthechidna . ';';
 
     // Add in our own scss file (containing imports).
     $scss .= file_get_contents($CFG->dirroot . '/theme/echidna/scss/echidna.scss');
