@@ -28,22 +28,37 @@ defined('MOODLE_INTERNAL') || die;
 if ($ADMIN->fulltree) {
     // Add your settings here.
 
+    // Min width.
+    $name = 'theme_echidna/min_dw_echidna';
+    $title = get_string('min_dw_echidna', 'theme_echidna');
+    $description = get_string('min_dw_echidna_desc', 'theme_echidna');;
+    $defaultn = '180px';
+    $setting = new admin_setting_configtext($name, $title, $description, $defaultn);
+    $settings->add($setting);
+
+    // Max width.
+    $name = 'theme_echidna/max_dw_echidna';
+    $title = get_string('max_dw_echidna', 'theme_echidna');
+    $description = get_string('max_dw_echidna_desc', 'theme_echidna');
+    $defaultx = '340px';
+    $setting = new admin_setting_configtext($name, $title, $description, $defaultx);
+    $settings->add($setting);
+
     // Drawer widths (after Fordson)
     $name = 'theme_echidna/drawerwidthechidna';
     $title = get_string('drawerwidthechidna', 'theme_echidna');
     $description = get_string('drawerwidthechidna_desc', 'theme_echidna');;
-    $default = '280px';
-    $choices = array(
-            '180px' => '180px',
-            '200px' => '200px',
-            '220px' => '220px',
-            '240px' => '240px',
-            '260px' => '260px',
-            '280px' => '280px',
-            '300px' => '300px',
-            '320px' => '320px',
-            '340px' => '340px',
-        );
+
+    $min = (int) filter_var(get_config('theme_echidna', 'min_dw_echidna'), FILTER_SANITIZE_NUMBER_INT);
+    $max = (int) filter_var(get_config('theme_echidna', 'max_dw_echidna'), FILTER_SANITIZE_NUMBER_INT);
+
+    $choices = array();
+    for ($i = $min; $i <= $max; $i += 20) {
+        $choices[] = $i . 'px';
+    }
+
+    $default = '285px';
+
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $settings->add($setting);
 

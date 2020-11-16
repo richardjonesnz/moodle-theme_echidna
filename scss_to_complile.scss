@@ -147,7 +147,7 @@ body {
 }
 
 @include bg-variant(".bg-gray", $gray-200, true);
-$drawer-width: 220px;@import "bts";
+$drawer-width: 4;@import "bts";
 @import "mdl";;
 /** Extra SCSS from theme_boost_get_extra_scss **/
 
