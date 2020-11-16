@@ -28,6 +28,25 @@ defined('MOODLE_INTERNAL') || die;
 if ($ADMIN->fulltree) {
     // Add your settings here.
 
+    // Drawer widths (after Fordson)
+    $name = 'theme_echidna/drawerwidthechidna';
+    $title = get_string('drawerwidthechidna', 'theme_echidna');
+    $description = get_string('drawerwidthechidna_desc', 'theme_echidna');;
+    $default = '280px';
+    $choices = array(
+            '180px' => '180px',
+            '200px' => '200px',
+            '220px' => '220px',
+            '240px' => '240px',
+            '260px' => '260px',
+            '280px' => '280px',
+            '300px' => '300px',
+            '320px' => '320px',
+            '340px' => '340px',
+        );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $settings->add($setting);
+
     // Custom CSS.
     $name = 'theme_echidna/customcss';
     $title = get_string('customcss', 'theme_echidna');

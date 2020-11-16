@@ -1,0 +1,13 @@
+[data-region="drawer"] {
+    position: fixed;
+    width: $drawer-width;
+    top: $fixed-header-y;
+    height: calc(100% - #{$navbar-height});
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: $zindex-dropdown - 1;
+    background-color: $drawer-bg;
+    -webkit-transition: right 0.5s ease, left 0.5s ease;
+    -moz-transition: right 0.5s ease, left 0.5s ease;
+    transition: right 0.5s ease, left 0.5s ease;
+}
