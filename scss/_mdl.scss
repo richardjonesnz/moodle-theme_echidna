@@ -1,2 +1,2 @@
 @import "mdl/core";
-@import "mdl/drawer";
+// Don't need to redefine '_drawer.scss' as the existing selector already contains $drawer-width and will use the version defined in the 'pre' section.
