@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2020112300;
+$plugin->version   = 2020112303;
 $plugin->requires  = 2020061500.00; // 3.9 (Build: 20200615).
 $plugin->component = 'theme_echidna';
 $plugin->maturity = MATURITY_BETA;

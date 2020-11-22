@@ -16,7 +16,7 @@ if ($navdraweropen) {
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blocksprehtml = $OUTPUT->echidnablocks('side-pre');
 $haspreblocks = strpos($blocksprehtml, 'data-block=') !== false;
-$blocksfooterhtml = $OUTPUT->echidnablocks('footer', 3);
+$blocksfooterhtml = $OUTPUT->echidnablocks('footer', 2);
 $buildregionmainsettings = !$PAGE->include_region_main_settings_in_header_actions();
 // If the settings menu will be included in the header then don't add it here.
 $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settings_menu() : false;

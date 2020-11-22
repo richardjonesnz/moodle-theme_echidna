@@ -28,6 +28,22 @@ defined('MOODLE_INTERNAL') || die;
 if ($ADMIN->fulltree) {
     // Add your settings here.
 
+    // Blocks per row.
+    $name = 'theme_echidna/blocksperrow';
+    $title = get_string('blocksperrow', 'theme_echidna');
+    $description = get_string('blocksperrow_desc', 'theme_echidna');;
+    $default = '4';
+    $choices = array(
+            '0' => 'none',
+            '1' => '1',
+            '2' => '2',
+            '3' => '3',
+            '4' => '4',
+        );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $settings->add($setting);
+
+
     // Drawer widths (after Fordson)
     $name = 'theme_echidna/drawerwidthechidna';
     $title = get_string('drawerwidthechidna', 'theme_echidna');
@@ -45,7 +61,7 @@ if ($ADMIN->fulltree) {
             '340px' => '340px',
         );
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');  // As the SCSS will change then this rebuilds the cache.
+    $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 
     // Custom CSS.
